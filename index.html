@@ -66,6 +66,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                             <option value="Arts">Arts</option>
                             <option value="Science">Science</option>
                             <option value="Environment">Environment</option>
+                            <option value="Applied Health Sciences">Applied Health Sciences</option>
                         </select>
                     </form>
 
@@ -159,9 +160,9 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                     <p>Click the button for Mr. Goose to suggest you a residence.</p>
 
                     <button type="button" onclick="myFunction()">Calculate!</button>
-                    <br> 
                     <br>
-                    <p id="calculating"></p>
+                    <br>
+                     <em><h2 style="padding: 0px;" id="calculating"></h2></em>
 
                     <h1 id="first"></h1>
                     <h2 id="second"></h2>
@@ -201,7 +202,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                         */
                         function myFunction() 
                         {
-                            document.getElementById("calculating").innerHTML = "Calculating ... One Second";
+                            document.getElementById("calculating").innerHTML = "Your Residence Rankings: ";
                             var list = "You prefer: ";
                             var v1 = 0;
                             var rev = 0;
