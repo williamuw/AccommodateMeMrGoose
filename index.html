@@ -41,21 +41,21 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                 <article id="intro">
                     <h2 class="major">Residence Quiz</h2>
                     <span class="image main"><img src="mrgoose.jpg" alt="goose" /></span>
-                    
+
                     <form>
-                        Which Faculty do you want your Residence the closest to:
+                        Which Faculty Are You Planning to Attend:
                         <select id="faculty">
                             <option value="na">Doesn't Matter</option>
-                            <option value="engineering">Engineering</option>
-                            <option value="math">Math</option>
-                            <option value="arts">Arts</option>
-                            <option value="science">Science</option>
-                            <option value="environment">Environment</option>
+                            <option value="Engineering">Engineering</option>
+                            <option value="Math">Math</option>
+                            <option value="Arts">Arts</option>
+                            <option value="Science">Science</option>
+                            <option value="Environment">Environment</option>
                         </select>
                     </form>
-                    
+
                     <form>
-                        Meal Plan:
+                        Select Your Preferred Meal Plan:
                         <select id="mealPlan">
                             <option value="na">Doesn't Matter</option>
                             <option value="mandatory">Mandatory</option>
@@ -64,43 +64,43 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                     </form>
 
                     <form>
-                        Preferred Room Style:
+                        Select Your Preferred Room Style:
                         <select id="roomStyle">
-                            <option value="traditional">Traditional</option>
-                            <option value="suite">Suite</option>
+                            <option value="Traditional Style Rooms">Traditional</option>
+                            <option value="Suite Style Rooms">Suite</option>
                         </select>
                     </form>
 
                     <form>
-                        If Suite, Preferred Room Type:
+                        If Suite, Select Your Preferred Room Type:
                         <select id="suiteType">
-                            <option value="na">N/A  </option>
-                            <option value="2suite">2-Bedroom suites</option>
-                            <option value="3suite">3-Bedroom suites</option>
-                            <option value="4suite">4-Bedroom suites</option>
+                            <option value="na">N/A</option>
+                            <option value="2-Bedroom Suite">2-Bedroom suites</option>
+                            <option value="3-Bedroom Suite">3-Bedroom suites</option>
+                            <option value="4-Bedroom Suite">4-Bedroom suites</option>
                         </select>
                     </form>
 
                     <form>
-                        Preferred Room Type:
+                        Select Your Preferred Room Type:
                         <select id="roomType">
-                            <option value="single">Single</option>
-                            <option value="double">Double</option>
+                            <option value="Single Rooms">Single</option>
+                            <option value="Double Rooms">Double</option>
                         </select>
                     </form>
 
                     <form>
-                        If Double Room, Preferred Room Type:
+                        If You Chose Double Room, Select Your Preferred Room Type:
                         <select id="doubleType">
                             <option value="na">N/A  </option>
                             <option value="normal">Normal</option>
-                            <option value="semiprivate">Semi-private double rooms</option>
-                            <option value="interconnecting">Interconnecting Rooms</option>
+                            <option value="Semi-private Double Rooms">Semi-private double rooms</option>
+                            <option value="Interconnecting Rooms">Interconnecting Rooms</option>
                         </select>
                     </form>
 
                     <form>
-                        Preferred Floor Type:
+                        Select Your Preferred Floor Type:
                         <select id="floorType">
                             <option value="single">Single-gender floors</option>
                             <option value="coed">Co-ed floors</option>
@@ -137,18 +137,30 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                         On-site Music/Multi-Faith Room:
                         <select id="music">
                             <option value="no">No</option>
-                            <option value="yes">Yes</option>
+                            <option value="On-site Music/Multi-Faith Room">Yes</option>
                         </select>
                     </form>                    
 
                     <p>Click the button for Mr. Goose to suggest you a residence.</p>
 
                     <button type="button" onclick="myFunction()">Calculate!</button>
+                    <br> 
+                    <br>
+                    <p id="calculating"></p>
+
+                    <p id="facultydisplay"></p>
+
+                    <p id="mealplandisplay"></p>
 
                     <p id="demo"></p>
 
+                    <p id="reference">Please refer to Waterloo's <a href="https://uwaterloo.ca/housing/residences/compare-residences">Compare Residences page</a> to review the suggestions calculated by Mr. Goose.</p>
+
+
                     <script>
-                        function myFunction() {
+                        function myFunction() 
+                        {
+                            document.getElementById("calculating").innerHTML = "Calculating One Second";
                             var list = "You prefer: ";
                             var v1 = 0;
                             var rev = 0;
@@ -156,35 +168,87 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                             var mkv = 0;
                             var ump = 0;
                             var clv = 0;
+                            var facc = "Your Faculty is: ";
                             var fac = document.getElementById("faculty").value;
-                            var meal = document.getElementById("mealPlan").value;
+                            if(fac == "na")
+                            {
+                                facc = facc + "Unspecified";
+                            }
+                            else
+                            {
+                                facc = facc + " " + fac;
+                            }
+                            document.getElementById('facultydisplay').innerHTML = facc;
 
+                            var meal = document.getElementById("mealPlan").value;
+                            var mealdisplayvalue = "Preferred Meal Plan: ";
                             if(meal == "mandatory")
                             {
                                 v1++;
                                 rev++;
                                 cmh++;
-                                list = list + " Mandatory Meal Plan";
+                                mealdisplayvalue = mealdisplayvalue + "Mandatory Meal Plan";
                             }
-                            else if(meal     == "optional")
+                            else if(meal == "optional")
                             {
                                 cmh++;
                                 mkv++;
                                 clv++;
-                                list = list + " Optional Meal Plan";
-                            }
-                            document.getElementById("demo").innerHTML = list;
-                            
-                            
+                                mealdisplayvalue = mealdisplayvalue + "Optional Meal Plan";
 
-                            var roomStyle = document.getElementById("roomStyle").value;
-                            
-                            var roomType = document.getElementById("roomType").value;
-                            var doubleType = document.getElementById("doubleType").value;
+                            }
+                            else
+                                mealdisplayvalue = mealdisplayvalue + "Doesn't Matter";
+
+                            document.getElementById('mealplandisplay').innerHTML = mealdisplayvalue;
+
+
+                            var roomV = document.getElementById("roomStyle").value;
+                            list = list + roomV;
+
+
+                            // document.getElementById('demo').innerHTML = list;
+
+
+
+                            var roomT = document.getElementById("roomType").value;
+                            if(roomT == "na")
+                            {
+
+                            }
+                            else
+                            {
+                                list = list + ", " + roomT;
+                            }
+
+                            var doubleTypeV = document.getElementById("doubleType").value;
+                            if(doubleTypeV == "na" || doubleTypeV == "normal" )
+                            {
+
+                            }
+                            else
+                            {
+                                list = list + ", " + doubleTypeV;
+                            }
+                            /*
                             var x = document.getElementById("mySelect").value;
                             var roomStyle = document.getElementById("roomStyle").value;
                             var roomType = document.getElementById("roomType").value;
-                            var doubleType = document.getElementById("doubleType").value;       
+                            */
+                            var mus = document.getElementById("music").value;
+                            /*
+                            if(mus == "no")
+                            else
+                            {
+                                list = list + ", " + mus;
+                            }
+                            */
+                            document.getElementById('demo').innerHTML = list;
+
+
+
+                            // document.getElementById("reference").innerHTML = "Please refer to Waterloo's <a href="https:html5up.net">HTML5 UP</a> page to review the suggestions calculated by Mr. Goose."; 
+
                         }
                     </script>
                 </article>
