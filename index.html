@@ -43,12 +43,11 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                     <span class="image main"><img src="mrgoose.jpg" alt="goose" /></span>
 
                     <form>
-                        Select your favorite fruit:
-                        <select id="mySelect">
-                            <option value="apple">Apple</option>
-                            <option value="orange">Orange</option>
-                            <option value="pineapple">Pineapple</option>
-                            <option value="banana">Banana</option>
+                        Meal Plan:
+                        <select id="mealPlan">
+                            <option value="mandatory">Mandatory</option>
+                            <option value="optional">Optional</option>
+                            <option value="na">Doesn't Matter</option>
                         </select>
                     </form>
 
@@ -59,7 +58,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                             <option value="suite">Suite</option>
                         </select>
                     </form>
-                    
+
                     <form>
                         If Suite, Preferred Room Type:
                         <select id="suiteType">
@@ -77,7 +76,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                             <option value="double">Double</option>
                         </select>
                     </form>
-                    
+
                     <form>
                         If Double Room, Preferred Room Type:
                         <select id="doubleType">
@@ -95,9 +94,9 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                             <option value="coed">Co-ed floors</option>
                         </select>
                     </form>
-                    
+
                     <h4>Features and amenities(Skip if not necessary): </h4>
-                    
+
                     <form>
                         Air Conditioning:
                         <select id="ac">
@@ -105,7 +104,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                             <option value="yes">Yes</option>
                         </select>
                     </form>
-                    
+
                     <form>
                         On-site Eatery:
                         <select id="eatery">
@@ -113,7 +112,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                             <option value="yes">Yes</option>
                         </select>
                     </form>
-                    
+
                     <form>
                         On-site Fitness Room:
                         <select id="fitness">
@@ -121,7 +120,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                             <option value="yes">Yes</option>
                         </select>
                     </form>
-                    
+
                     <form>
                         On-site Music/Multi-Faith Room:
                         <select id="music">
@@ -129,26 +128,50 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                             <option value="yes">Yes</option>
                         </select>
                     </form>
-                    
+
                     <p>Click the button for Mr. Goose to suggest you a residence.</p>
 
-                    <button type="button" onclick="myFunction()">Try it</button>
+                    <button type="button" onclick="myFunction()">Calculate!</button>
 
                     <p id="demo"></p>
 
                     <script>
                         function myFunction() {
+                            var list = "You prefer: ";
                             var v1 = 0;
                             var rev = 0;
                             var cmh = 0;
                             var mkv = 0;
                             var ump = 0;
-                            var clvs = 0;
+                            var clv = 0;
+                            var meal = document.getElementById("mealPlan").value;
+
+                            if(meal == "mandatory")
+                            {
+                                v1++;
+                                rev++;
+                                cmh++;
+                                list = list + " Mandatory Meal Plan";
+                            }
+                            else if(meal     == "optional")
+                            {
+                                cmh++;
+                                mkv++;
+                                clv++;
+                                list = list + " Optional Meal Plan";
+                            }
+                            document.getElementById("demo").innerHTML = list;
+                            
+                            
+
+                            var roomStyle = document.getElementById("roomStyle").value;
+                            
+                            var roomType = document.getElementById("roomType").value;
+                            var doubleType = document.getElementById("doubleType").value;
                             var x = document.getElementById("mySelect").value;
                             var roomStyle = document.getElementById("roomStyle").value;
                             var roomType = document.getElementById("roomType").value;
-                            var doubleType = document.getElementById("doubleType").value;
-                            document.getElementById("demo").innerHTML = x + roomStyle + roomType + doubleType;
+                            var doubleType = document.getElementById("doubleType").value;       
                         }
                     </script>
                 </article>
