@@ -170,6 +170,8 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                     <h5 id="fifth"></h5>
                     <h6 id="sixth"></h6>
 
+                    <strong><p id="firstdescription"></p></strong>
+                    <p id="firstdescriptiondetailed"></p>
                     <p id="facultydisplay"></p>
 
                     <p id="mealplandisplay"></p>
@@ -181,7 +183,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                     <p id="rankings"></p>
 
                     <p id="rankings2"></p>
-                    
+
                     <p id="rankings3"></p>
 
                     <strong><p id="reference">Please refer to Waterloo's <a href="https://uwaterloo.ca/housing/residences/compare-residences">Compare Residences page</a> to review the suggestions calculated by Mr. Goose.</p></strong>
@@ -397,7 +399,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
                             document.getElementById('amenities').innerHTML = features;
 
-                            document.getElementById('rankings').innerHTML = "The Individual Scores -> V1: " + v1 + ", REV: " + rev + ", CMH: " + cmh + ", MKV: " + mkv + ", UWP: " + uwp + ", CLV: " + clv; 
+                            document.getElementById('rankings3').innerHTML = "The Individual Scores -> V1: " + v1 + ", REV: " + rev + ", CMH: " + cmh + ", MKV: " + mkv + ", UWP: " + uwp + ", CLV: " + clv; 
 
 
 
@@ -445,6 +447,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                             myArray.sort(compareIndexFound);
                             var dup = myArray;
 
+
                             document.getElementById('first').innerHTML = "1. " + myArray.pop().name;
                             document.getElementById('second').innerHTML = "2. " +myArray.pop().name;
                             document.getElementById('third').innerHTML = "3. " +myArray.pop().name;
@@ -460,24 +463,60 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                             myArray.push(mkvarray);
                             myArray.push(uwparray);
                             myArray.push(clvarray);
-                            
-                            var print = "The Rankings in Reverse Order: ";
+
+                            var print = "The Rankings in Order with Score: ";
                             // document.getElementById('rankings2').innerHTML =    "The Rankings in Order with Scores: ";
-                            
+
+
+                            myArray.sort(compareIndexFound);
+                            var firstChoice = myArray.pop().name;
+                            var firstString = "Mr. Goose suggests you to check out: " + firstChoice + "! ";
+                            var resdes = "";
+
+                            switch(firstChoice)
+                            {
+                                case "V1":
+                                    resdes = "Village 1 (V1) was the first residence built for students at the University of Waterloo. With a long history, it is here where many first-year students will call home.";
+                                    break;
+                                case "REV":
+                                    resdes = "Ron Eydt Village (REV) is a first-year exclusive residence, with plenty of social and academic programming to make your first year in residence a memorable one!";
+                                case "CMH":
+                                    resdes = "Claudette Millar Hall (CMH) is located in the heart of UW Place and offers single and semi-private double rooms, plenty of study space, and a variety of dining options.";
+                                    break;
+                                    
+                                case "MKV":
+                                    resdes = "Mackenzie King Village (MKV) offers the privacy of having a single room combined with the social benefits of living in a shared suite. Students also have a kitchen in their suite to prepare their own meals.";
+                                    break;
+                                case "UWP":
+                                    resdes = "UW Place (UWP) is centrally located to campus, Waterloo Park, a new LRT station, and University Plaza. Students living at UWP enjoy the independence and privacy of their own room, combined with the perks of apartment living.";
+                                    break;
+                                case "CLV":
+                                    resdes = "Columbia Lake Village South (CLV-South) is a vibrant community with a diverse population of students in different stages of their academic career. Rooms are fully furnished.";
+                                    break;
+                                default:
+                                    resdes = "";
+
+
+                            }
+                            document.getElementById('firstdescription').innerHTML = firstString + resdes;
+
+
                             for(var i = 0; i < 6; i++)
                             {
                                 if(i == 5)
                                 {
-                                    print = print + myArray.pop().name;
+                                    var c = myArray.pop();
+                                    print = print + c.name + ": " + c.score;
                                 }
                                 else
                                 {
-                                    print = print + myArray.pop().name + ", ";
+                                    var c = myArray.pop();
+                                    print = print + c.name + ": " + c.score + ", ";
                                 }
                             }
-                            
-                            document.getElementById('rankings3').innerHTML = print;
-                            
+                            document.getElementById('rankings2').innerHTML = print;
+
+
 
 
 
