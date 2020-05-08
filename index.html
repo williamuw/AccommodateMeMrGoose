@@ -163,6 +163,13 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                     <br>
                     <p id="calculating"></p>
 
+                    <h1 id="first"></h1>
+                    <h2 id="second"></h2>
+                    <h3 id="third"></h3>
+                    <h4 id="fourth"></h4>
+                    <h5 id="fifth"></h5>
+                    <h6 id="sixth"></h6>
+
                     <p id="facultydisplay"></p>
 
                     <p id="mealplandisplay"></p>
@@ -172,8 +179,12 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                     <p id="amenities"></p>
 
                     <p id="rankings"></p>
+
                     <p id="rankings2"></p>
-                    <p id="reference">Please refer to Waterloo's <a href="https://uwaterloo.ca/housing/residences/compare-residences">Compare Residences page</a> to review the suggestions calculated by Mr. Goose.</p>
+                    
+                    <p id="rankings3"></p>
+
+                    <strong><p id="reference">Please refer to Waterloo's <a href="https://uwaterloo.ca/housing/residences/compare-residences">Compare Residences page</a> to review the suggestions calculated by Mr. Goose.</p></strong>
 
 
 
@@ -245,7 +256,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                             }
                             list = list + roomV;
 
-                            var suiteT = document.getElementById("roomType").value;
+                            var suiteT = document.getElementById("suiteType").value;
                             if(suiteT == "na")
                             {
 
@@ -386,38 +397,36 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
                             document.getElementById('amenities').innerHTML = features;
 
-                            document.getElementById('rankings').innerHTML = "V1: " + v1 + ", REV: " + rev + ", CMH: " + cmh + ", MKV: " + mkv + ", UWP: " + uwp + ", CLV: " + clv; 
+                            document.getElementById('rankings').innerHTML = "The Individual Scores -> V1: " + v1 + ", REV: " + rev + ", CMH: " + cmh + ", MKV: " + mkv + ", UWP: " + uwp + ", CLV: " + clv; 
 
-                            /*
-                            var highestScore = Math.max(v1, rev, cmh, mkv, uwp, clv);
 
+
+                            var myArray = [];
                             var v1array = {
-                                name = "V1";
-                                score = v1;
+                                name: "V1",
+                                score: v1
                             };
                             var revarray = {
-                                name = "REV";
-                                score = rev;
+                                name: "REV",
+                                score: rev
                             }; 
                             var cmharray = {
-                                name = "CMH";
-                                score = cmh;
+                                name: "CMH",
+                                score: cmh
                             }; 
                             var mkvarray = {
-                                name = "MKV";
-                                score = mkv;
+                                name: "MKV",
+                                score: mkv
                             }; 
                             var uwparray = {
-                                name = "UWP";
-                                score = uwp;
+                                name: "UWP",
+                                score: uwp
                             }; 
                             var clvarray = {
-                                name = "CLV";
-                                score = clv;
+                                name: "CLV",
+                                score: clv
                             }; 
-                            
-                            var myArray = [];
-                            /*
+
                             myArray.push(v1array);
                             myArray.push(revarray);
                             myArray.push(cmharray);
@@ -425,16 +434,64 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                             myArray.push(uwparray);
                             myArray.push(clvarray);
 
-                           // var original = myArray;
 
-                            //myArray.sort();
+                            function compareIndexFound(a, b) {
+                                if (a.score < b.score) { return -1; }
+                                if (a.score > b.score) { return 1; }
+                                return 0;
+                            }
 
-                            //document.getElementById('rankings2').innerHTML = myArray.toString(); 
 
-                            //var search = true;
+                            myArray.sort(compareIndexFound);
+                            var dup = myArray;
+
+                            document.getElementById('first').innerHTML = "1. " + myArray.pop().name;
+                            document.getElementById('second').innerHTML = "2. " +myArray.pop().name;
+                            document.getElementById('third').innerHTML = "3. " +myArray.pop().name;
+                            document.getElementById('fourth').innerHTML = "4. " +myArray.pop().name;
+                            document.getElementById('fifth').innerHTML = "5. " +myArray.pop().name;
+                            document.getElementById('sixth').innerHTML = "6. " +myArray.pop().name;
+
+
+                            //myArray = dup;
+                            myArray.push(v1array);
+                            myArray.push(revarray);
+                            myArray.push(cmharray);
+                            myArray.push(mkvarray);
+                            myArray.push(uwparray);
+                            myArray.push(clvarray);
                             
+                            var print = "The Rankings in Reverse Order: ";
+                            // document.getElementById('rankings2').innerHTML =    "The Rankings in Order with Scores: ";
+                            
+                            for(var i = 0; i < 6; i++)
+                            {
+                                if(i == 5)
+                                {
+                                    print = print + myArray.pop().name;
+                                }
+                                else
+                                {
+                                    print = print + myArray.pop().name + ", ";
+                                }
+                            }
+                            
+                            document.getElementById('rankings3').innerHTML = print;
                             
 
+
+
+
+
+
+                            /*
+
+
+
+
+                            var highestScore = Math.max(v1, rev, cmh, mkv, uwp, clv);
+
+                             myArray.name.toString()
 
                             //document.getElementById('rankings').innerHTML = "V1: " + v1 + ", REV: " + rev + ", CMH: " + cmh ;
                             //document.getElementById('rankings2').innerHTML = "MKV: " + mkv + ", UWP: " + uwp ;
@@ -447,7 +504,9 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
                         }
 
-                        
+
+
+
                     </script>
                 </article>
             </div>
