@@ -73,8 +73,8 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                         Select Your Preferred Meal Plan:
                         <select id="mealPlan">
                             <option value="na">Doesn't Matter</option>
-                            <option value="mandatory">Mandatory</option>
-                            <option value="optional">Optional</option>
+                            <option value="mandatory">Mandatory Meal Plan</option>
+                            <option value="optional">Optional or No Meal Plan</option>
                         </select>
                     </form>
 
@@ -235,10 +235,10 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                                 mkv++;
                                 uwp++;
                                 clv++;
-                                mealdisplayvalue = mealdisplayvalue + "Optional Meal Plan";
+                                mealdisplayvalue = mealdisplayvalue + "Optional or No Meal Plan";
                             }
                             else
-                                mealdisplayvalue = mealdisplayvalue + "Doesn't Matter";
+                                mealdisplayvalue = mealdisplayvalue + "No Preference";
 
                             document.getElementById('mealplandisplay').innerHTML = mealdisplayvalue;
 
