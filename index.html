@@ -121,7 +121,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                         Air Conditioning:
                         <select id="ac">
                             <option value="no">No</option>
-                            <option value="yes">Yes</option>
+                            <option value="Air Conditioning">Yes</option>
                         </select>
                     </form>
 
@@ -129,7 +129,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                         On-site Fitness Room:
                         <select id="fitness">
                             <option value="no">No</option>
-                            <option value="yes">Yes</option>
+                            <option value="On-site Fitness Room">Yes</option>
                         </select>
                     </form>
 
@@ -227,16 +227,40 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                             else
                             {
                                 list = list + ", " + doubleTypeV;
+                                
                             }
-                            
+
                             var fl = document.getElementById("floorType").value;
                             list = list + ", " + fl;
 
+                            // features
                             var features = "Features and Amenities: ";
-                            /*
-                            var roomStyle = document.getElementById("roomStyle").value;
-                            var roomType = document.getElementById("roomType").value;
-                            */
+
+                            var eateryvalue = document.getElementById("eatery").value;
+
+                            features = features + eateryvalue;
+                            var acvalue = document.getElementById("ac").value;
+
+                            if(acvalue == "no")
+                            {
+
+                            }
+                            else
+                            {
+                                features = features + ", " + acvalue;
+                            }
+
+                            var fit = document.getElementById("fitness").value;
+
+                            if(fit == "no")
+                            {
+
+                            }
+                            else
+                            {
+                                features = features + ", " + fit;
+                            } 
+
                             var mus = document.getElementById("music").value;
 
                             if(mus == "no")
