@@ -188,7 +188,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                         */
                         function myFunction() 
                         {
-                            document.getElementById("calculating").innerHTML = "Calculating One Second";
+                            document.getElementById("calculating").innerHTML = "Calculating ... One Second";
                             var list = "You prefer: ";
                             var v1 = 0;
                             var rev = 0;
@@ -374,9 +374,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                             var mus = document.getElementById("music").value;
 
                             if(mus == "no")
-                            {
-
-                            }
+                            {}
                             else
                             {
                                 cmh++; v1++;
@@ -389,6 +387,55 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                             document.getElementById('amenities').innerHTML = features;
 
                             document.getElementById('rankings').innerHTML = "V1: " + v1 + ", REV: " + rev + ", CMH: " + cmh + ", MKV: " + mkv + ", UWP: " + uwp + ", CLV: " + clv; 
+
+                            /*
+                            var highestScore = Math.max(v1, rev, cmh, mkv, uwp, clv);
+
+                            var v1array = {
+                                name = "V1";
+                                score = v1;
+                            };
+                            var revarray = {
+                                name = "REV";
+                                score = rev;
+                            }; 
+                            var cmharray = {
+                                name = "CMH";
+                                score = cmh;
+                            }; 
+                            var mkvarray = {
+                                name = "MKV";
+                                score = mkv;
+                            }; 
+                            var uwparray = {
+                                name = "UWP";
+                                score = uwp;
+                            }; 
+                            var clvarray = {
+                                name = "CLV";
+                                score = clv;
+                            }; 
+                            
+                            var myArray = [];
+                            /*
+                            myArray.push(v1array);
+                            myArray.push(revarray);
+                            myArray.push(cmharray);
+                            myArray.push(mkvarray);
+                            myArray.push(uwparray);
+                            myArray.push(clvarray);
+
+                           // var original = myArray;
+
+                            //myArray.sort();
+
+                            //document.getElementById('rankings2').innerHTML = myArray.toString(); 
+
+                            //var search = true;
+                            
+                            
+
+
                             //document.getElementById('rankings').innerHTML = "V1: " + v1 + ", REV: " + rev + ", CMH: " + cmh ;
                             //document.getElementById('rankings2').innerHTML = "MKV: " + mkv + ", UWP: " + uwp ;
                             //document.getElementById('rankings2').innerHTML = "MKV: " + mkv + ", UWP: " + uwp + ", CLV: " + clv;
@@ -396,8 +443,11 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                             //document.getElementById('rankings').innerHTML = "V1: " + v1 + ", REV: " + rev + ", CMH: " + cmh + ", MKV: " + mkv + ", UWP: " + uwp + ", CLV: " + clv;  
 
                             // document.getElementById("reference").innerHTML = "Please refer to Waterloo's <a href="https:html5up.net">HTML5 UP</a> page to review the suggestions calculated by Mr. Goose."; 
+                            */
 
                         }
+
+                        
                     </script>
                 </article>
             </div>
