@@ -44,7 +44,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                     
                     <form>
                         Which Faculty do you want your Residence the closest to:
-                        <select id="roomStyle">
+                        <select id="faculty">
                             <option value="na">Doesn't Matter</option>
                             <option value="engineering">Engineering</option>
                             <option value="math">Math</option>
@@ -156,6 +156,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                             var mkv = 0;
                             var ump = 0;
                             var clv = 0;
+                            var fac = document.getElementById("faculty").value;
                             var meal = document.getElementById("mealPlan").value;
 
                             if(meal == "mandatory")
