@@ -19,7 +19,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
             <!-- Header -->
             <header id="header">
-                    
+
                 <div class="content">
                     <div class="inner">
                         <h1>Accommodate Me Mr. Goose</h1>
@@ -59,7 +59,43 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                             <option value="suite">Suite</option>
                         </select>
                     </form>
+                    
+                    <form>
+                        If Suite, Preferred Room Type:
+                        <select id="suiteType">
+                            <option value="na">N/A  </option>
+                            <option value="2suite">2-Bedroom suites</option>
+                            <option value="3suite">3-Bedroom suites</option>
+                            <option value="4suite">4-Bedroom suites</option>
+                        </select>
+                    </form>
 
+                    <form>
+                        Preferred Room Type:
+                        <select id="roomType">
+                            <option value="single">Single</option>
+                            <option value="double">Double</option>
+                        </select>
+                    </form>
+                    
+                    <form>
+                        If Double Room, Preferred Room Type:
+                        <select id="doubleType">
+                            <option value="na">N/A  </option>
+                            <option value="normal">Normal</option>
+                            <option value="semiprivate">Semi-private double rooms</option>
+                            <option value="interconnecting">Interconnecting Rooms</option>
+                        </select>
+                    </form>
+
+                    <form>
+                        Preferred Floor Type:
+                        <select id="floorType">
+                            <option value="single">Single-gender floors</option>
+                            <option value="coed">Co-ed floors</option>
+                        </select>
+                    </form>
+                    
                     <p>Click the button to return the value of the selected fruit.</p>
 
                     <button type="button" onclick="myFunction()">Try it</button>
@@ -76,8 +112,9 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                             var clvs = 0;
                             var x = document.getElementById("mySelect").value;
                             var roomStyle = document.getElementById("roomStyle").value;
-
-                            document.getElementById("demo").innerHTML = x + roomStyle;
+                            var roomType = document.getElementById("roomType").value;
+                            var doubleType = document.getElementById("doubleType").value;
+                            document.getElementById("demo").innerHTML = x + roomStyle + roomType + doubleType;
                         }
                     </script>
                 </article>
