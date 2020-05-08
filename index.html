@@ -102,24 +102,24 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                     <form>
                         Select Your Preferred Floor Type:
                         <select id="floorType">
-                            <option value="single">Single-gender floors</option>
-                            <option value="coed">Co-ed floors</option>
+                            <option value="Single-Gender Floors">Single-Gender Floors</option>
+                            <option value="Co-ed Floors">Co-ed Floors</option>
                         </select>
                     </form>
 
                     <h4>Features and amenities(Skip if not necessary): </h4>
 
                     <form>
-                        Air Conditioning:
-                        <select id="ac">
-                            <option value="no">No</option>
-                            <option value="yes">Yes</option>
+                        On-site Eatery or Grocery Shuttle:
+                        <select id="eatery">
+                            <option value="On-site Eatery">On-site Eatery</option>
+                            <option value="Grocery shuttle">Grocery shuttle</option>
                         </select>
                     </form>
 
                     <form>
-                        On-site Eatery:
-                        <select id="eatery">
+                        Air Conditioning:
+                        <select id="ac">
                             <option value="no">No</option>
                             <option value="yes">Yes</option>
                         </select>
@@ -153,6 +153,8 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                     <p id="mealplandisplay"></p>
 
                     <p id="demo"></p>
+
+                    <p id="amenities"></p>
 
                     <p id="reference">Please refer to Waterloo's <a href="https://uwaterloo.ca/housing/residences/compare-residences">Compare Residences page</a> to review the suggestions calculated by Mr. Goose.</p>
 
@@ -207,10 +209,6 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                             list = list + roomV;
 
 
-                            // document.getElementById('demo').innerHTML = list;
-
-
-
                             var roomT = document.getElementById("roomType").value;
                             if(roomT == "na")
                             {
@@ -230,20 +228,30 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                             {
                                 list = list + ", " + doubleTypeV;
                             }
+                            
+                            var fl = document.getElementById("floorType").value;
+                            list = list + ", " + fl;
+
+                            var features = "Features and Amenities: ";
                             /*
-                            var x = document.getElementById("mySelect").value;
                             var roomStyle = document.getElementById("roomStyle").value;
                             var roomType = document.getElementById("roomType").value;
                             */
                             var mus = document.getElementById("music").value;
-                            /*
+
                             if(mus == "no")
+                            {
+
+                            }
                             else
                             {
-                                list = list + ", " + mus;
+                                features = features + ", " + mus;
                             }
-                            */
+
+
                             document.getElementById('demo').innerHTML = list;
+
+                            document.getElementById('amenities').innerHTML = features;
 
 
 
