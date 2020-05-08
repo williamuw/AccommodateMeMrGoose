@@ -81,8 +81,8 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                     <form>
                         Select Your Preferred Room Style:
                         <select id="roomStyle">
-                            <option value="Traditional Style Rooms">Traditional</option>
-                            <option value="Suite Style Rooms">Suite</option>
+                            <option value="Traditional Style Rooms">Traditional Style Rooms</option>
+                            <option value="Suite Style Rooms">Suite Style Rooms</option>
                         </select>
                     </form>
 
@@ -90,17 +90,17 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                         If You Chose Suite, Select Your Preferred Room Type:
                         <select id="suiteType">
                             <option value="na">N/A</option>
-                            <option value="2-Bedroom Suite">2-Bedroom suites</option>
-                            <option value="3-Bedroom Suite">3-Bedroom suites</option>
-                            <option value="4-Bedroom Suite">4-Bedroom suites</option>
+                            <option value="2-Bedroom Suite">2-Bedroom Suites</option>
+                            <option value="3-Bedroom Suite">3-Bedroom Suites</option>
+                            <option value="4-Bedroom Suite">4-Bedroom Suites</option>
                         </select>
                     </form>
 
                     <form>
                         Select Your Preferred Room Type:
                         <select id="roomType">
-                            <option value="Single Rooms">Single</option>
-                            <option value="Double Rooms">Double</option>
+                            <option value="Single Rooms">Single Rooms</option>
+                            <option value="Double Rooms">Double Rooms</option>
                         </select>
                     </form>
 
@@ -108,8 +108,8 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                         If You Chose Double Room, Select Your Preferred Room Type:
                         <select id="doubleType">
                             <option value="na">N/A  </option>
-                            <option value="normal">Normal</option>
-                            <option value="Semi-private Double Rooms">Semi-private double rooms</option>
+                            <option value="normal">Normal Double Rooms</option>
+                            <option value="Semi-Private Double Rooms">Semi-Private Double Rooms</option>
                             <option value="Interconnecting Rooms">Interconnecting Rooms</option>
                         </select>
                     </form>
@@ -122,13 +122,13 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                         </select>
                     </form>
 
-                    <h4>Features and amenities(Skip if not necessary): </h4>
+                    <h4>Features and Amenities(Skip if not necessary): </h4>
 
                     <form>
-                        On-site Eatery or Grocery Shuttle:
+                        On-Site Eatery or Grocery Shuttle:
                         <select id="eatery">
-                            <option value="On-site Eatery">On-site Eatery</option>
-                            <option value="Grocery shuttle">Grocery shuttle</option>
+                            <option value="On-Site Eatery">On-Site Eatery</option>
+                            <option value="Grocery Shuttle">Grocery Shuttle</option>
                         </select>
                     </form>
 
@@ -141,18 +141,18 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                     </form>
 
                     <form>
-                        On-site Fitness Room:
+                        On-Site Fitness Room:
                         <select id="fitness">
                             <option value="no">No</option>
-                            <option value="On-site Fitness Room">Yes</option>
+                            <option value="On-Site Fitness Room">Yes</option>
                         </select>
                     </form>
 
                     <form>
-                        On-site Music/Multi-Faith Room:
+                        On-Site Music/Multi-Faith Room:
                         <select id="music">
                             <option value="no">No</option>
-                            <option value="On-site Music/Multi-Faith Room">Yes</option>
+                            <option value="On-Site Music/Multi-Faith Room">Yes</option>
                         </select>
                     </form>                    
 
@@ -171,10 +171,21 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
                     <p id="amenities"></p>
 
+                    <p id="rankings"></p>
+                    <p id="rankings2"></p>
                     <p id="reference">Please refer to Waterloo's <a href="https://uwaterloo.ca/housing/residences/compare-residences">Compare Residences page</a> to review the suggestions calculated by Mr. Goose.</p>
 
 
+
                     <script>
+                        /*
+                        v1++;
+                        rev++;
+                        cmh++;
+                        mkv++;
+                        uwp++;
+                        clv++;
+                        */
                         function myFunction() 
                         {
                             document.getElementById("calculating").innerHTML = "Calculating One Second";
@@ -183,7 +194,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                             var rev = 0;
                             var cmh = 0;
                             var mkv = 0;
-                            var ump = 0;
+                            var uwp = 0;
                             var clv = 0;
                             var facc = "Your Faculty is: ";
                             var fac = document.getElementById("faculty").value;
@@ -208,11 +219,10 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                             }
                             else if(meal == "optional")
                             {
-                                cmh++;
                                 mkv++;
+                                uwp++;
                                 clv++;
                                 mealdisplayvalue = mealdisplayvalue + "Optional Meal Plan";
-
                             }
                             else
                                 mealdisplayvalue = mealdisplayvalue + "Doesn't Matter";
@@ -221,39 +231,121 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
 
                             var roomV = document.getElementById("roomStyle").value;
+                            if(roomV == "Traditional Style Rooms")
+                            {
+                                v1++;
+                                rev++;
+                                cmh++;
+                            }
+                            else if(roomV == "Suite Style Rooms")
+                            {
+                                mkv++;
+                                uwp++;
+                                clv++;
+                            }
                             list = list + roomV;
 
-
-                            var roomT = document.getElementById("roomType").value;
-                            if(roomT == "na")
+                            var suiteT = document.getElementById("roomType").value;
+                            if(suiteT == "na")
                             {
 
                             }
                             else
                             {
-                                list = list + ", " + roomT;
+                                if(roomT == "2-Bedroom Suites")
+                                {
+                                    uwp++; 
+                                }
+                                else if(roomT == "3-Bedroom Suites")
+                                {
+                                    uwp++;
+                                }
+                                else if(roomT == "4-Bedroom Suites")
+                                {
+                                    mkv++;
+                                    uwp++;
+                                    clv++;
+                                }
+                                list = list + ", " + suiteT;
                             }
+
+                            var roomT = document.getElementById("roomType").value;
+                            if(roomT == "Single Rooms")
+                            {
+                                v1++;
+
+                                cmh++;
+
+                                mkv++;
+                                uwp++;
+                                clv++;
+                            }
+                            else if(roomT == "Double Rooms")
+                            {
+                                v1++;
+                                rev++;
+
+                                uwp++;  
+                            }
+                            list = list + ", " + roomT;
+
+
 
                             var doubleTypeV = document.getElementById("doubleType").value;
                             if(doubleTypeV == "na" || doubleTypeV == "normal" )
                             {
-
+                                v1++;
+                                rev++;
+                                uwp++;
                             }
                             else
                             {
+                                if(doubleTypeV == "Semi-Private Double Rooms")
+                                {
+                                    cmh++;
+                                }
+                                else if(doubleTypeV == "Interconnecting Rooms	")
+                                {
+                                    v1++;
+                                }
                                 list = list + ", " + doubleTypeV;
 
                             }
 
                             var fl = document.getElementById("floorType").value;
+                            if(fl == "Single-Gender Floor")
+                            {
+                                v1++;
+                                clv++;
+                            }
+                            else
+                            {
+                                rev++;
+                                cmh++;
+                                mkv++;
+                                uwp++;
+                            }
                             list = list + ", " + fl;
 
                             // features
                             var features = "Features and Amenities: ";
 
                             var eateryvalue = document.getElementById("eatery").value;
+                            if(eateryvalue == "On-Site Eatery")
+                            {
+                                v1++;
+                                rev++;
+                                cmh++;
+                            }
+                            else
+                            {
+                                mkv++;
+                                uwp++;
+                                clv++;
+                            }
 
                             features = features + eateryvalue;
+
                             var acvalue = document.getElementById("ac").value;
 
                             if(acvalue == "no")
@@ -262,6 +354,8 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                             }
                             else
                             {
+                                cmh++;
+                                mkv++;
                                 features = features + ", " + acvalue;
                             }
 
@@ -273,6 +367,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                             }
                             else
                             {
+                                rev++; cmh++;
                                 features = features + ", " + fit;
                             } 
 
@@ -284,6 +379,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                             }
                             else
                             {
+                                cmh++; v1++;
                                 features = features + ", " + mus;
                             }
 
@@ -292,7 +388,12 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
                             document.getElementById('amenities').innerHTML = features;
 
+                            document.getElementById('rankings').innerHTML = "V1: " + v1 + ", REV: " + rev + ", CMH: " + cmh + ", MKV: " + mkv + ", UWP: " + uwp + ", CLV: " + clv; 
+                            //document.getElementById('rankings').innerHTML = "V1: " + v1 + ", REV: " + rev + ", CMH: " + cmh ;
+                            //document.getElementById('rankings2').innerHTML = "MKV: " + mkv + ", UWP: " + uwp ;
+                            //document.getElementById('rankings2').innerHTML = "MKV: " + mkv + ", UWP: " + uwp + ", CLV: " + clv;
 
+                            //document.getElementById('rankings').innerHTML = "V1: " + v1 + ", REV: " + rev + ", CMH: " + cmh + ", MKV: " + mkv + ", UWP: " + uwp + ", CLV: " + clv;  
 
                             // document.getElementById("reference").innerHTML = "Please refer to Waterloo's <a href="https:html5up.net">HTML5 UP</a> page to review the suggestions calculated by Mr. Goose."; 
 
