@@ -159,10 +159,11 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
                     <p>Click the button for Mr. Goose to suggest you a residence.</p>
 
-                    <button type="button" onclick="myFunction()">Calculate!</button>
+                    <button id="calcbutton" type="button" onclick="myFunction()">Calculate!</button>
+
                     <br>
                     <br>
-                     <em><h2 style="padding: 0px;" id="calculating"></h2></em>
+                    <em><h2 style="padding: 0px;" id="calculating"></h2></em>
 
                     <h1 id="first"></h1>
                     <h2 id="second"></h2>
@@ -187,19 +188,12 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
                     <p id="rankings3"></p>
 
-                    <strong><p id="reference">Please refer to Waterloo's <a href="https://uwaterloo.ca/housing/residences/compare-residences">Compare Residences page</a> to review the suggestions calculated by Mr. Goose.</strong> The Residence Rankings calculated on this website are only based on the recorded responses. It does not take into account the importance of certain preferences. Thus, please review Waterloo's webpage as well for the most up-to-date and complete information regarding your First-Year residence choices before coming to a conclusion. Thank you for visiting!</p>
+                    <p id="reference"><strong>Please refer to Waterloo's <a href="https://uwaterloo.ca/housing/residences/compare-residences">Compare Residences page</a> to review the suggestions calculated by Mr. Goose.</strong> The Residence Rankings calculated on this website are only based on the recorded responses. It does not take into account the importance of certain preferences. Thus, please review Waterloo's webpage as well for the most up-to-date and complete information regarding your First-Year residence choices before coming to a conclusion. Thank you for visiting!</p>
 
 
 
                     <script>
-                        /*
-                        v1++;
-                        rev++;
-                        cmh++;
-                        mkv++;
-                        uwp++;
-                        clv++;
-                        */
+
                         function myFunction() 
                         {
                             document.getElementById("calculating").innerHTML = "Your Residence Rankings: ";
@@ -400,7 +394,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
                             document.getElementById('amenities').innerHTML = features;
 
-                            document.getElementById('rankings3').innerHTML = "The Individual Scores -> V1: " + v1 + ", REV: " + rev + ", CMH: " + cmh + ", MKV: " + mkv + ", UWP: " + uwp + ", CLV: " + clv; 
+                            document.getElementById('rankings3').innerHTML = "The Individual Scores --- V1: " + v1 + ", REV: " + rev + ", CMH: " + cmh + ", MKV: " + mkv + ", UWP: " + uwp + ", CLV: " + clv; 
 
 
 
@@ -465,8 +459,6 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                             myArray.push(uwparray);
                             myArray.push(clvarray);
 
-                            var print = "The Rankings in Order with Score: ";
-                            // document.getElementById('rankings2').innerHTML =    "The Rankings in Order with Scores: ";
 
 
                             myArray.sort(compareIndexFound);
@@ -484,7 +476,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                                 case "CMH":
                                     resdes = "Claudette Millar Hall (CMH) is located in the heart of UW Place and offers single and semi-private double rooms, plenty of study space, and a variety of dining options.";
                                     break;
-                                    
+
                                 case "MKV":
                                     resdes = "Mackenzie King Village (MKV) offers the privacy of having a single room combined with the social benefits of living in a shared suite. Students also have a kitchen in their suite to prepare their own meals.";
                                     break;
@@ -501,7 +493,17 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                             }
                             document.getElementById('firstdescription').innerHTML = firstString + resdes;
 
+                            document.getElementById("calcbutton").innerHTML="Calculate Again!";
 
+                            var print = "The Rankings in Order with Score --- ";
+
+                            myArray.push(v1array);
+                            
+
+
+
+                            myArray.sort(compareIndexFound);
+                            
                             for(var i = 0; i < 6; i++)
                             {
                                 if(i == 5)
@@ -515,32 +517,15 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                                     print = print + c.name + ": " + c.score + ", ";
                                 }
                             }
+
+
+
                             document.getElementById('rankings2').innerHTML = print;
 
 
 
 
 
-
-
-
-                            /*
-
-
-
-
-                            var highestScore = Math.max(v1, rev, cmh, mkv, uwp, clv);
-
-                             myArray.name.toString()
-
-                            //document.getElementById('rankings').innerHTML = "V1: " + v1 + ", REV: " + rev + ", CMH: " + cmh ;
-                            //document.getElementById('rankings2').innerHTML = "MKV: " + mkv + ", UWP: " + uwp ;
-                            //document.getElementById('rankings2').innerHTML = "MKV: " + mkv + ", UWP: " + uwp + ", CLV: " + clv;
-
-                            //document.getElementById('rankings').innerHTML = "V1: " + v1 + ", REV: " + rev + ", CMH: " + cmh + ", MKV: " + mkv + ", UWP: " + uwp + ", CLV: " + clv;  
-
-                            // document.getElementById("reference").innerHTML = "Please refer to Waterloo's <a href="https:html5up.net">HTML5 UP</a> page to review the suggestions calculated by Mr. Goose."; 
-                            */
 
                         }
 
