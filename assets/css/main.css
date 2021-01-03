@@ -996,7 +996,7 @@ input, select, textarea {
 				border-top: 0;
 			}
 
-/* Button */
+/* Button 
 
 	input[type="submit"],
 	input[type="reset"],
@@ -1103,7 +1103,7 @@ input, select, textarea {
 	button {
 		line-height: calc(2.75rem - 2px);
 	}
-
+*/
 /* BG */
 
 	#bg {
@@ -1140,9 +1140,12 @@ input, select, textarea {
 			-ms-transition-delay: 0.75s;
 			transition-delay: 0.75s;
 			background-image: linear-gradient(to top, rgba(19, 21, 25, 0.5), rgba(19, 21, 25, 0.5)), url("../../images/overlay.png");
-			background-size: auto, 256px 256px;
-			background-position: center, center;
-			background-repeat: no-repeat, repeat;
+			background-size: auto,
+ 256px 256px;
+			background-position: center,
+ center;
+			background-repeat: no-repeat,
+ repeat;
 			z-index: 2;
 		}
 

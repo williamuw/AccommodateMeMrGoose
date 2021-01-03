@@ -19,7 +19,62 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
         <title>Accommodate Me Mr. Goose</title>
         <link rel="icon" href="thankmrgoose.jpg">
         <style>
+            .button-hover{
+                position: relative;
+                min-width: 200px;
+                margin: 1em;
+                padding: 0.5em;
+                background: linear-gradient(to right, #56ccf2, #2f80ed);
+                border: 0;
+                cursor: pointer;
+                border-radius: 20px;
 
+            }
+
+            .button-hover::before,.button-hover::after{
+                content: '';
+                position:absolute;
+                left:0;
+                right:0;
+                top: 0;
+                bottom: 0;
+                background: linear-gradient(to right, #56ccf2, #2f80ed);
+                border-radius: 20px;
+                transition: all .5s ease-in-out;
+            }
+
+            .button-hover:hover::before{
+                filter:blur(5px);
+            }
+
+            .button-hover:hover::after{
+                filter:blur(15px);
+            }
+
+            .button-hover:hover{
+                animation: hue 3s linear infinite;
+            }
+
+            @keyframes hue {
+                0% {
+                    filter: hue-rotate(0deg);
+                }
+                100% {
+                    filter: hue-rotate(360deg);
+                }
+            }
+
+            .button-hover span {
+                position: relative;
+                z-index: 3;
+                display: block;
+                padding: 0.5em;
+                font-family: 'Montserrat', sans-serif;
+                font-size: 2em;
+                color: white;
+                background-color: #2c2e36;
+                border-radius: 17px;
+            }
         </style>
     </head>
     <body class="is-preload">
@@ -54,7 +109,8 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                     <h2 class="major">Mr. Goose's Residence Quiz</h2>
 
                     <span class="image main"><img src="mrgoose.jpg" alt="goose" /></span>
-                    
+
+
 
                     <p>Mr. Goose will help to suggest residences that match you according to your preferences below.</p> 
 
@@ -158,9 +214,12 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                         </select>
                     </form>                    
 
-                    <p>Click the button for Mr. Goose to suggest you a residence.</p>
+                    <center>
+                        <p>Click the button for Mr. Goose to suggest you a residence.</p>
 
-                    <button id="calcbutton" type="button" onclick="myFunction()">Calculate!</button>
+                        <button class="button-hover"  type="button" onclick="myFunction()">
+                            <span id="calcbutton">Calculate!</span></button>
+                    </center>
 
                     <br>
                     <br>
@@ -189,12 +248,12 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
                     <p id="rankings3"></p>
 
-                    
+
                     <span class="image main"><img src="bg.png" alt="campus" /></span>
-                    
+
                     <p id="reference"><strong>Please refer to Waterloo's <a href="https://uwaterloo.ca/housing/residences/compare-residences">Compare Residences page</a> to review the suggestions calculated by Mr. Goose.</strong> The Residence Rankings calculated on this website are only based on the recorded responses. It does not take into account the importance of certain preferences. Thus, please review Waterloo's webpage as well for the most up-to-date and complete information regarding your First-Year residence choices before coming to a conclusion. Thank you for visiting!</p>
 
-                     
+
 
                     <script>
 
@@ -502,12 +561,12 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                             var print = "The Rankings in Order with Score --- ";
 
                             myArray.push(v1array);
-                            
+
 
 
 
                             myArray.sort(compareIndexFound);
-                            
+
                             for(var i = 0; i < 6; i++)
                             {
                                 if(i == 5)
@@ -525,7 +584,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
 
                             document.getElementById('rankings2').innerHTML = print;
-                           
+
 
 
 
